@@ -10,9 +10,5 @@ module PipeDream
         Video
       end.new(item)
     end
-
-    class Base
-
-    end
   end
 end
