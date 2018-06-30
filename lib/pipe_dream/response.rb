@@ -11,7 +11,7 @@ module PipeDream
     end
 
     def etag
-      @etag ||= data.fetch('etag')
+      @etag ||= JSON.parse(data.fetch('etag'))
     end
 
     def next_page_token
@@ -28,6 +28,10 @@ module PipeDream
 
     def results_per_page
       @results_per_page ||= page_info.fetch('resultsPerPage')
+    end
+
+    def items
+      @items ||= data.fetch('items').map { |item| Result.for(item) }
     end
 
     private
