@@ -1,5 +1,6 @@
 require 'pipe_dream/version'
 require 'pipe_dream/configuration'
+require 'pipe_dream/response'
 require 'pipe_dream/request'
 require 'pipe_dream/utils'
 
