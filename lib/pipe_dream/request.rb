@@ -5,10 +5,12 @@ require 'pipe_dream/utils'
 
 module PipeDream
   class Request
+    include Utils
+
     def initialize(search_term, options = {})
       @search_term = search_term
       @api_key     = PipeDream.configuration.api_key
-      @options     = PipeDream::Utils.camelize_keys(options)
+      @options     = camelize_keys(options)
     end
 
     def get

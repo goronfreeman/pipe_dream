@@ -1,6 +1,6 @@
 module PipeDream
-  class Utils
-    def self.camelize_keys(hash)
+  module Utils
+    def camelize_keys(hash)
       hash.tap do |h|
         affected_keys = h.each_key.select { |key| key.to_s.include?('_') }
         return h if affected_keys.empty?
