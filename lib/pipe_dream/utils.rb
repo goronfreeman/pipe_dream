@@ -1,5 +1,6 @@
 module PipeDream
   module Utils
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def camelize_keys(hash)
       hash.tap do |h|
         affected_keys = h.each_key.select { |key| key.to_s.include?('_') }
@@ -17,5 +18,6 @@ module PipeDream
         end
       end
     end
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
   end
 end

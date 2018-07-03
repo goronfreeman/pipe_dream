@@ -7,4 +7,4 @@ task :console do
   exec 'irb -r pipe_dream -I ./lib'
 end
 
-task :default => :spec
+task default: :spec
