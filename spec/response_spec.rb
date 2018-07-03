@@ -16,7 +16,7 @@ describe PipeDream::Response do
   describe '#etag' do
     it 'returns a properly formatted etag' do
       expect(subject.etag)
-        .to eq('DuHzAJ-eQIiCIp7p4ldoVcVAOeY/eyEjZvRSkJHgKdw2a8tXrdRexHE')
+        .to eq("\"DuHzAJ-eQIiCIp7p4ldoVcVAOeY/eyEjZvRSkJHgKdw2a8tXrdRexHE\"")
     end
   end
 

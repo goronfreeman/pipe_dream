@@ -11,7 +11,7 @@ module PipeDream
     end
 
     def etag
-      @etag ||= JSON.parse(data.fetch('etag'))
+      @etag ||= data.fetch('etag')
     end
 
     def next_page_token
