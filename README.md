@@ -1,8 +1,10 @@
 # PipeDream
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pipe_dream`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+PipeDream allows you to easily search YouTube by providing a simple wrapper
+around YouTube's official APIs. What sets PipeDream apart from other options, is
+that it has no dependencies outside the Ruby standard library. This makes it easy
+to include in projects where you can't easily bundle dependencies, such as in an
+Alfred workflow.
 
 ## Installation
 
@@ -22,14 +24,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Before you begin using PipeDream to perform searches, you will have to configure
+it with your developer API key. You can create a new API key using the
+[Google Cloud Console](https://console.cloud.google.com/). Once you have created your key, configure PipeDream with
+it like this:
 
-## Development
+```ruby
+PipeDream.configure do |config|
+  config.api_key = '<your-api-key>'
+end
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Now you can begin searching! Here is a basic example of how you can perform a search:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+req = PipeDream::Request.new('redlettermedia')
+res = PipeDream::Response.new(req.get)
+# The items method will return an array of objects that wrap the search results.
+items = res.items #=> [#<PipeDream::Result::Channel...]
+channel = items.first
+channel.title #=> 'RedLetterMedia'
+channel.description #=> 'Red Letter Media is responsible for the 70 minute Phantom Menace review as well as Space Cop, Half in the Bag, and Best of the Worst. Full time frauds.'
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pipe_dream.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[goronfreeman]/pipe_dream.
