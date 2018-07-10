@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Hunter Braun']
   spec.email         = ['hunter.braun@gmail.com']
 
-  spec.summary       = 'Write a short summary, because RubyGems requires one.'
-  spec.description   = 'Write a longer description or delete this line.'
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = 'A dreamy, zero-dependency YouTube API wrapper.'
+  spec.homepage      = 'https://github.com/goronfreeman/pipe_dream'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
